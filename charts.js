@@ -1,3 +1,73 @@
+// To oppen a local server:
+// 
+// Terminal - navigate to the folder these files are in
+// enter >
+// python -m http.server
+// it will provid a link, prob > 
+// http://[::]:8000/
+// to end session press command c
+// 
+// VS code - right click on the html file on the left side bar
+// click >
+// open with live server
+// it will provide a link, prob >
+// http://localhost:5500/13-BellyButton/belly_button/
+// to end session press command c? 
+
+////////
+/*
+// create a dynamic dropdown menu of ID numbers 
+function init() {
+  var selector = d3.select("#selDataset");
+
+  d3.json("samples.json").then((data) => {
+    console.log(data);
+    var sampleNames = data.names;
+    sampleNames.forEach((sample) => {
+      selector
+        .append("option")
+        .text(sample)
+        .property("value", sample);
+    });
+})}
+
+init();
+
+// NOTE: this of this.value from the html and newSample from js are = to eachother and refer to the dropdown menu
+// When a change takes place to the dropdown menu, call functions buildMetadata & buildCharts
+function optionChanged(newSample) {
+  console.log(newSample);
+}
+function optionChanged(newSample) {
+  buildMetadata(newSample);
+  buildCharts(newSample);
+}
+
+// Demographics Panel 
+function buildMetadata(sample) {
+  d3.json("samples.json").then((data) => {
+    var metadata = data.metadata;
+    // Filter the data for the object with the desired sample number
+    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var result = resultArray[0];
+   
+    // Use d3 to select the panel with id of `#sample-metadata`
+    var PANEL = d3.select("#sample-metadata");
+
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    Object.entries(result).forEach(([key, value]) => {
+      PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+    });
+
+  });
+}
+*/
+
+
+
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
@@ -36,7 +106,7 @@ function buildMetadata(sample) {
     var metadata = data.metadata;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-    var result = resultArray[0];
+    var resultM = resultArray[0];
    
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#sample-metadata");
@@ -47,7 +117,7 @@ function buildMetadata(sample) {
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
-    Object.entries(result).forEach(([key, value]) => {
+    Object.entries(resultM).forEach(([key, value]) => {
       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
     });
 
@@ -61,36 +131,45 @@ function buildCharts(sample) {
     console.log(data);
 
     // Deliverable 1: 3. Create a variable that holds the samples array. 
+    var sampleInfo = data.samples;
 
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
-
+    var result = sampleInfo.filter(sampleObj => sampleObj.id == sample);
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
-
+    
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
+    var resultS = result[0];
 
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
 
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
-
+    var otuIds = resultS.otu_ids;
+    var otuLables = resultS.otu_labels;
+    var sampleValues = resultS.sample_values;
     // Deliverable 3: 3. Create a variable that holds the washing frequency.
-
+    
 
     // Deliverable 1: 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last. 
-    var yticks = 
-
+    var yticks = otuIds.slice(0, 10).map(id => `OTU ${id}`).reverse();
+    console.log(yticks);
     // Deliverable 1: 8. Create the trace for the bar chart. 
-    var barData = [
-
-    ];
+    var barData = [{
+      y: yticks, 
+      x: sampleValues.slice(0,10).reverse(), 
+      text: otuLables.slice(0,10).reverse(),
+      type: "bar", 
+      orientation: "h" 
+    }];
 
     // Deliverable 1: 9. Create the layout for the bar chart. 
     var barLayout = {
-
+      title: "Top Ten OTU's"
     };
 
-    // Deliverable 1: 10. Use Plotly to plot the data with the layout. 
+    // Deliverable 1: 10. Use Plotly to plot the data with the layout.
+    Plotly.newPlot("bar", barData, barLayout); 
 
     // Deliverable 2: 1. Create the trace for the bubble chart.
 

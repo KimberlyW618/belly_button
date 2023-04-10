@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+    }
+
+
+.jumbotron {
+    background-image: url("images/pic1.jpeg");
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+
+  }
+.col-md-2 {
+    border: 4px double #000000;
+}
+#bubble {
+    border: 4px double #000000;
+}
+#gauge {
+    border: 4px double #000000;
+}
+#bar {
+    border: 4px double #000000;
+    }
+#selDataset {
+    border: 4px double #000000;
+}

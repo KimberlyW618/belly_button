@@ -40,3 +40,4 @@ In this project I bult a website that provides a dashboard for a biodiversity re
 - Colors: https://matplotlib.org/3.1.0/gallery/color/named_colors.html
 - Bubble plot: https://plotly.com/javascript/bubble-charts/#marker-size-and-color-on-bubble-charts 
 - html/css cheat sheet: https://htmlcheatsheet.com/css/ 
+- Margins https://www.geeksforgeeks.org/css-margins-padding/

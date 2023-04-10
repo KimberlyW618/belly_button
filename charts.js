@@ -1,20 +1,4 @@
-// To oppen a local server:
-// 
-// Terminal - navigate to the folder these files are in
-// enter >
-// python -m http.server
-// it will provid a link, prob > 
-// http://[::]:8000/
-// to end session press command c
-// 
-// VS code - right click on the html file on the left side bar
-// click >
-// open with live server
-// it will provide a link, prob >
-// http://localhost:5500/13-BellyButton/belly_button/
-// to end session press 
-
-////////
+//////// belly_button /////////////////
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
@@ -44,7 +28,6 @@ function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
   buildCharts(newSample);
-  
 }
 
 // Demographics Panel 
@@ -67,7 +50,6 @@ function buildMetadata(sample) {
     Object.entries(resultM).forEach(([key, value]) => {
       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
     });
-
   });
 }
 

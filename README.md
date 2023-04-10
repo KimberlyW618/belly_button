@@ -22,7 +22,7 @@ In this project I bult a website that provides a dashboard for a biodiversity re
 ### Test Subject ID No. selector and Demographic Info Panel
 ![images/demo_info.png](images/demo_info.png)
 
-## Bar Graph
+### Bar Graph
 ![images/bar.png](images/bar.png)
 
 ### Bubble Chart

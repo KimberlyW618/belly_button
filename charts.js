@@ -107,7 +107,12 @@ function buildCharts(sample) {
       x: sampleValues.slice(0,10).reverse(),
       text: otuLables.slice(0,10).reverse(),
       type: "bar", 
-      orientation: "h" 
+      orientation: "h",
+      marker: {
+        color: sampleValues,
+        colorscale: 'Electric'
+      }
+
     }];
 
     // Deliverable 1: 9. Create the layout for the bar chart. 
@@ -128,14 +133,16 @@ function buildCharts(sample) {
         color: otuIds,
         opacity: 0.5,
         size: sampleValues,
-        colorscale: 'Earth',
+        colorscale: 'Electric',
         type: 'heatmap'
       } 
     }];
     // Deliverable 2: 2. Create the layout for the bubble chart.
     var bubbleLayout = {
       title: "Bacteria Cultures Per Sample",
-      xaxis: {title: "OTU ID Numbers"}
+      xaxis: {title: "OTU ID Numbers"},
+      margin: {
+        pad: 10}
       };
     // Deliverable 2: 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, bubbleLayout);
@@ -148,16 +155,16 @@ function buildCharts(sample) {
         axis: {range: [0, 10]},
         bar: { color: "black" },
         steps: [
-          {range: [0,2], color: "red"},
-          {range: [2,4], color: "orange"},
-          {range: [4,6], color: "yellow"},
-          {range: [6,8], color: "yellowgreen"},
-          {range: [8,10], color: "green"}
+          {range: [0,2], color: "gold"},
+          {range: [2,4], color: "darkgoldenrod"},
+          {range: [4,6], color: "darkmagenta"},
+          {range: [6,8], color: "darkred"},
+          {range: [8,10], color: "indigo"}
         ]
       },
       title: {
         display: true,
-        text: "Scrubs per Week"} 
+        text: "Scrubs per Week"}
       }];
 
     // Deliverable 3: 5. Create the layout for the gauge chart.

@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: mediumturquoise;
     }
 
 
@@ -8,20 +8,23 @@ body {
     background-size: 100% 100%;
     text-align: center;
     color: white;
-
-  }
-.col-md-2 {
-    border: 4px double #000000;
-}
-#bubble {
-    border: 4px double #000000;
-}
-#gauge {
-    border: 4px double #000000;
-}
-#bar {
-    border: 4px double #000000;
+    text-shadow: 4px 4px 5px white;
     }
-#selDataset {
-    border: 4px double #000000;
-}
+
+.well {  
+    box-shadow: inset 0px 0px 13px 8px rgba(48,197,206,0.77);
+    }
+
+#bubble {
+    outline: 4px solid #000000;
+    outline-offset: 0px;
+    }
+#gauge {
+    outline: 4px solid #000000;
+    outline-offset: 0px;
+    }
+#bar {
+    outline: 4px solid #000000;
+    outline-offset: 0px;
+        }
+

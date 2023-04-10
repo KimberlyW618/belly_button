@@ -112,12 +112,19 @@ function buildCharts(sample) {
         color: sampleValues,
         colorscale: 'Electric'
       }
-
     }];
 
     // Deliverable 1: 9. Create the layout for the bar chart. 
     var barLayout = {
-      title: "Top Ten OTU's"
+      width: 457,
+      height: 400,
+      title: {
+        text: "Top Ten OTU's",
+        disply: true,
+        font: {
+          size: 24,
+          weight: "bold"}
+      }
     };
 
     // Deliverable 1: 10. Use Plotly to plot the data with the layout.
@@ -139,7 +146,13 @@ function buildCharts(sample) {
     }];
     // Deliverable 2: 2. Create the layout for the bubble chart.
     var bubbleLayout = {
-      title: "Bacteria Cultures Per Sample",
+      title: {
+        text: "Bacteria Cultures Per Sample", 
+        display: true, 
+        font: {
+          size: 24, 
+          weight:"bold" }
+      },
       xaxis: {title: "OTU ID Numbers"},
       margin: {
         pad: 10}
@@ -169,7 +182,7 @@ function buildCharts(sample) {
 
     // Deliverable 3: 5. Create the layout for the gauge chart.
     var washingLayout = {
-      width: 500,
+      width: 457,
       height: 400,
       title: {
         text: "Belly Button Washing Frequency", 
@@ -178,7 +191,7 @@ function buildCharts(sample) {
           weight: "bold",
           size: 24}
       }
-      };
+      }
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("gauge", washingData, washingLayout);
   });

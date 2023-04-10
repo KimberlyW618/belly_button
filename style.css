@@ -8,11 +8,14 @@ body {
     background-size: 100% 100%;
     text-align: center;
     color: white;
-    text-shadow: 4px 4px 5px white;
+    text-shadow: 4px 4px 5px grey;
     }
 
 .well {  
-    box-shadow: inset 0px 0px 13px 8px rgba(48,197,206,0.77);
+    box-shadow: inset 0px 0px 13px 8px rgba(75,0,130,0.77);
+    }
+.panel {
+    box-shadow: inset 0px 0px 13px 8px rgba(75,0,130,0.77);
     }
 
 #bubble {
